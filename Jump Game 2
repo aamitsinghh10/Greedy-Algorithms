@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int jump(vector<int>& nums) 
+    {
+        int n=nums.size();
+        int jump=0;
+        int max_reachable=0;
+        int curr_reachable=0;
+        
+        for(int i=0;i<n-1;i++)
+        {
+            max_reachable=max(max_reachable,i+nums[i]);
+            
+            if(i==curr_reachable)
+            {
+                jump++;
+            curr_reachable=max_reachable;
+            }
+        }
+        return jump;
+    }
+};
